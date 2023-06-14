@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import css from '../Form/Form.module.css';
+
 class Form extends Component {
   state = {
     name: '',
@@ -33,6 +34,7 @@ class Form extends Component {
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
+            autoComplete="true"
           />
         </label>
         <label className={css.label}>

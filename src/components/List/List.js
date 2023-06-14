@@ -1,14 +1,27 @@
-// import React from 'react';
+import React from 'react';
+import css from '../List/List.module.css';
 
-// export const List = filteredContacts => {
-//   return (
-//     <ul className={css.contacts}>
-//       <h2>Contacts</h2>
-//       {filteredContacts.map(contact => (
-//         <li key={contact.id} className={css.contacts__item}>
-//           &#8728; {contact.name}: {contact.number}
-//         </li>
-//       ))}
-//     </ul>
-//   );
-// };
+export const List = ({ filteredContacts, handleDelete }) => {
+  return (
+    <div>
+      {filteredContacts.length > 0 ? (
+        <ul className={css.box}>
+          {filteredContacts.map(({ id, name, number }) => (
+            <li key={id} className={css.contacts__item}>
+              &#8728; {name}: {number}{' '}
+              <button
+                type="button"
+                className={css.button}
+                onClick={() => handleDelete(id)}
+              >
+                Delete
+              </button>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <div className={css.box}>Contacts not found</div>
+      )}
+    </div>
+  );
+};
