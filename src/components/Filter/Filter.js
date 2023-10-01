@@ -1,5 +1,6 @@
 import React from 'react';
 import css from '../Filter/Filter.module.css';
+import PropTypes from 'prop-types';
 
 export const Filter = ({ value, onChange }) => (
   <label className={css.box}>
@@ -16,3 +17,8 @@ export const Filter = ({ value, onChange }) => (
     />
   </label>
 );
+
+Filter.propTypes = {
+  value: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+};

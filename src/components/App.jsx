@@ -14,11 +14,11 @@ class App extends Component {
     filter: "",
   }
   
-  addContact = (contact) => {
+  addContact = ({name, number}) => {
     const newContact = {
       id: nanoid(),
-      name: contact.name,
-      number: contact.number,
+      name: name,
+      number: number,
     }
     
     const inList = this.state.contacts.some(contact => contact.name === newContact.name);
@@ -44,8 +44,8 @@ class App extends Component {
 
   render() {
     const { contacts, filter } = this.state
-    const filteredContacts = contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
+    const filteredContacts = contacts.filter(({name}) =>
+      name.toLowerCase().includes(filter.toLowerCase())
     );
     return (
        <Container>
